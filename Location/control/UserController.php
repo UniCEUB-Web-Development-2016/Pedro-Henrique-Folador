@@ -28,10 +28,10 @@ class UserController
     public function search($request)
     {
         $params = $request->get_params();
-        $crit = $this->generateCriteria($params);
+        $sear = $this->generateCriteria($params);
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
         $conn = $db->getConnection();
-        $result = $conn->query("SELECT name, lastName, email,  password FROM user WHERE ".$crit);
+        $result = $conn->query("SELECT name, lastName, email,  password FROM user WHERE ".$sear);
         //foreach($result as $row)
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
