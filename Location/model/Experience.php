@@ -6,15 +6,33 @@ class Experience
     private $location;
     private $period;
     private $description;
+    private $codExperience;
     public function __construct($companyName, $title,
-                                $location, $period,$description)
+                                $location, $period,$codExperience,$description)
     {
         $this->companyName = $companyName;
         $this->title = $title;
         $this->location = $location;
         $this->period = $period;
+        $this->codExperience = $codExperience;
         $this->description = $description;
 
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCodExperience()
+    {
+        return $this->codExperience;
+    }
+
+    /**
+     * @param mixed $codExperience
+     */
+    public function setCodExperience($codExperience)
+    {
+        $this->codExperience = $codExperience;
     }
 
     /**

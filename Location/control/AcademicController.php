@@ -13,7 +13,7 @@ class AcademicController
             $params["studyArea"],
             $params["note"],
             $params["activitiesGroups"],
-            $params["cod_academic"],
+            $params["codAcademic"],
             $params["description"]);
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
         $conn = $db->getConnection();
@@ -23,14 +23,14 @@ class AcademicController
     }
     private function generateInsertQuery($academic)
     {
-        $query =  "INSERT INTO academiceducation (institution, period, formation, studyArea, note, activitiesGroups, cod_academic, description ) VALUES 
+        $query =  "INSERT INTO academiceducation (institution, period, formation, studyArea, note, activitiesGroups, codAcademic, description ) VALUES 
         ('".$academic->getInstitution()."','".
             $academic->getPeriod()."','".
             $academic->getFormation()."','".
             $academic->getStudyArea()."','".
             $academic->getNote()."','".
-            $academic->getActivitiesGropus()."','".
-            $academic->getCodAcademic()."','".
+            $academic->getactivitiesGroups()."','".
+            $academic->getcodAcademic()."','".
             $academic->getDescription()."')";
         return $query;
     }

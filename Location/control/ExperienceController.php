@@ -11,6 +11,7 @@ class ExperienceController
             $params["title"],
             $params["location"],
             $params["period"],
+            $params["codExperience"],
             $params["description"]);
 
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
@@ -21,11 +22,12 @@ class ExperienceController
     }
     private function generateInsertQuery($experience)
     {
-        $query =  "INSERT INTO experience (companyName, title, location,  period, description) VALUES 
+        $query =  "INSERT INTO experience (companyName, title, location,  period, codExperience, description) VALUES 
         ('".$experience->getCompanyName()."','".
             $experience->getTitle()."','".
             $experience->getLocation()."','".
             $experience->getPeriod()."','".
+            $experience->getCodExperience()."','".
             $experience->getDescription()."')";
         return $query;
     }

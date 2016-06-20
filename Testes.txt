@@ -1,0 +1,23 @@
+
+User
+
+POST OK
+http://localhost/Location/user/?firstName=pedro32&lastName=teebola212&email=jaja24@p.com&password=1234451as&codMap=3
+
+Academic
+
+Post OK
+
+http://localhost/Location/academic/?institution=teste2&period=2001-05-03&formation=umdia&studyArea=chablau&note=fodeu&activitiesGroups=deveis&codAcademic=1&description=chora
+
+Experience
+
+Post OK
+
+http://localhost/Location/experience/?companyName=Teste&title=tarde&location=bugation&period=2016-06-20&codExperience=1&description=gogo
+
+Map
+
+Post OK
+
+http://localhost/Location/map/?latitude=100&longitude=200&location=funciona
