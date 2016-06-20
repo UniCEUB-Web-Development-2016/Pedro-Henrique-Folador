@@ -2,16 +2,15 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <content url="file://$MODULE_DIR$/../client" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library name="PHARS">
         <CLASSES>
-          <root url="phar://$MODULE_DIR$/../client/httpful.phar/" />
+          <root url="phar://$MODULE_DIR$/httpful.phar/" />
         </CLASSES>
         <SOURCES>
-          <root url="phar://$MODULE_DIR$/../client/httpful.phar/" />
+          <root url="phar://$MODULE_DIR$/httpful.phar/" />
         </SOURCES>
       </library>
     </orderEntry>
