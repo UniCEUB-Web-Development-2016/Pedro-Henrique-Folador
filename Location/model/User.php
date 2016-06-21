@@ -1,19 +1,18 @@
 <?php
 class User
 {
+    private $iduser;
     private $firstName;
     private $lastName;
     private $email;
     private $password;
-    private $codMap;
     public function __construct($firstName, $lastName,
-                                $email, $password, $codMap)
+                                $email, $password)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->email = $email;
         $this->password = $password;
-        $this->codMap = $codMap;
     }
 
     /**
@@ -83,19 +82,16 @@ class User
     /**
      * @return mixed
      */
-    public function getCodMap()
+    public function getIduser()
     {
-        return $this->codMap;
+        return $this->iduser;
     }
 
     /**
-     * @param mixed $codMap
+     * @param mixed $iduser
      */
-    public function setCodMap($codMap)
+    public function setIduser($iduser)
     {
-        $this->codMap = $codMap;
+        $this->iduser = $iduser;
     }
-
-
-
 }

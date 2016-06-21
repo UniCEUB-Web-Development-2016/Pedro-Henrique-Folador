@@ -8,7 +8,7 @@ class Academic
     private $note;
     private $activitiesGroups;
     private $description;
-    private $codAcademic;
+    private $iduser;
 
     /**
      * @return mixed
@@ -138,24 +138,24 @@ class Academic
      /**
      * @return mixed
      */
-    public function getCodAcademic()
+    public function getiduser()
     {
-        return $this->codAcademic;
+        return $this->iduser;
     }
 
     /**
-     * @param mixed $codAcademic
+     * @param mixed $iduser
      * @return User
      */
-    public function setCodAcademic($codAcademic)
+    public function setiduser($iduser)
     {
-        $this->codAcademic = $codAcademic;
+        $this->iduser = $iduser;
         return $this;
     }
 
     public function __construct($institution, $period,
                                 $formation, $studyArea,$note,
-                                $activitiesGroups, $codAcademic, $description )
+                                $activitiesGroups, $iduser, $description )
     {
         $this->institution = $institution;
         $this->period = $period;
@@ -163,7 +163,7 @@ class Academic
         $this->studyArea = $studyArea;
         $this->note = $note;
         $this->activitiesGroups = $activitiesGroups;
-        $this->codAcademic = $codAcademic;
+        $this->iduser = $iduser;
         $this->description = $description;
 
     }

@@ -3,7 +3,7 @@ include_once "model/Request.php";
 include_once "control/UserController.php";
 include_once "control/AcademicController.php";
 include_once "control/ExperienceController.php";
-include_once "control/MapController.php";
+include_once "control/EnderecoController.php";
 
 class ResourceController
 {
@@ -12,7 +12,7 @@ class ResourceController
             "experience" => "ExperienceController",
             "user" => "UserController",
             "academic" => "AcademicController",
-            "map" => "MapController",
+            "endereco" => "EnderecoController",
         ];
     public function createResource($request)
     {

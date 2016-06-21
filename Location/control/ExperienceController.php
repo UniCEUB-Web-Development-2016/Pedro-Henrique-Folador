@@ -7,30 +7,51 @@ class ExperienceController
     public function register($request)
     {
         $params = $request->get_params();
-        $experience = new Experience($params["companyName"],
-            $params["title"],
-            $params["location"],
-            $params["period"],
-            $params["codExperience"],
-            $params["description"]);
 
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
         $conn = $db->getConnection();
 
+//        $endereco = new Endereco($params['logradouro'],
+//            $params['cidade'],
+//            $params['estado'],
+//            $params['bairro']);
+//
+//        $conn->query($this->generateInsertQueryParaEndereco($endereco));
+//
+//        $idendereco = $db->lastInsertId();
 
-        return $conn->query($this->generateInsertQuery($experience));
+        $experience = new Experience($params["companyName"],
+            $params["title"],
+            $params["period"],
+            $params["description"],
+            $params["iduser"],
+            $params["idendereco"]);
+
+        $conn->query($this->generateInsertQuery($experience));
     }
+
     private function generateInsertQuery($experience)
     {
-        $query =  "INSERT INTO experience (companyName, title, location,  period, codExperience, description) VALUES 
+        $query =  "INSERT INTO experience (companyName, title,  period, description, iduser, idendereco) VALUES 
         ('".$experience->getCompanyName()."','".
             $experience->getTitle()."','".
-            $experience->getLocation()."','".
             $experience->getPeriod()."','".
-            $experience->getCodExperience()."','".
-            $experience->getDescription()."')";
+            $experience->getDescription()."','".
+            $experience->getiduser()."','".
+            $experience->getidendereco()."')";
         return $query;
     }
+
+//    private function generateInsertQueryParaEndereco($endereco)
+//    {
+//        $query =  "INSERT INTO endereco (logradouro, cidade) VALUES 
+//        ('".$endereco->getLogradouro()."','".
+//            $endereco->getCidade()."','".
+//            $endereco->getEstado()."','".
+//            $endereco->getBairro()."')";
+//        return $query;
+//    }
+
     public function search($request)
     {
         $params = $request->get_params();
@@ -40,7 +61,7 @@ class ExperienceController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT companyName, title, location,  period, codExperience, description FROM experience WHERE " . $crit);
+        $result = $conn->query("SELECT companyName, title,  period, description, iduser, idenreco FROM experience WHERE " . $crit);
 
         //foreach($result as $row)
 
@@ -64,7 +85,7 @@ class ExperienceController
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
         $conn = $db->getConnection();
         foreach ($params as $key => $value) {
-            $result = $conn->query("UPDATE experience SET " . $key . " =  '" . $value . "' WHERE codExperience = '" . $params["codExperience"] . "'");
+            $result = $conn->query("UPDATE experience SET " . $key . " =  '" . $value . "' WHERE Iduser = '" . $params["Iduser"] . "'");
         }
         return $result;
     }

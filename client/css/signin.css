@@ -1,20 +1,40 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #eee;
+  background:url(../img/map.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: black;
 }
-
 .form-signin {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+  opacity: 0.9;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
+  color: aqua;
   margin-bottom: 10px;
 }
 .form-signin .checkbox {
   font-weight: normal;
+}
+.error{
+  color: red;
+
+}
+.button-signup{
+  background-color: aqua;
+  width: 300px;
+  padding: 15px;
+  margin: 0 auto;
+  opacity: 0.9;
+  font-size: large;
+  border-bottom-left-radius: 10%;
+  border-bottom-right-radius: 10%;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
 }
 .form-signin .form-control {
   position: relative;
@@ -37,4 +57,70 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.jumbotron{
+  opacity: 0.9;
+  width: 75%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+.jumbotron2{
+  opacity: 0.9;
+  width: 25%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+.jumbotron3{
+  opacity: 1;
+  width: 75%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0%;
+}
+
+
+.user-row {
+  margin-bottom: 14px;
+}
+
+.user-row:last-child {
+  margin-bottom: 0;
+}
+
+.dropdown-user {
+  margin: 13px 0;
+  padding: 5px;
+  height: 100%;
+}
+
+.dropdown-user:hover {
+  cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+  border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+  border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+  border-top: 0;
+}
+.toppad
+{margin-top:20px;
+}
+.delete{
+  text-align: right;
+}
+.packages{
+  position: absolute;
+  text-align: left;
 }

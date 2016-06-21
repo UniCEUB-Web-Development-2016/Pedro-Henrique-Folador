@@ -3,36 +3,18 @@ class Experience
 {
     private $companyName;
     private $title;
-    private $location;
     private $period;
     private $description;
-    private $codExperience;
-    public function __construct($companyName, $title,
-                                $location, $period,$codExperience,$description)
+    private $iduser;
+    private $idendereco;
+    public function __construct($companyName, $title,$period,$description,$iduser,$idendereco)
     {
         $this->companyName = $companyName;
         $this->title = $title;
-        $this->location = $location;
         $this->period = $period;
-        $this->codExperience = $codExperience;
         $this->description = $description;
-
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCodExperience()
-    {
-        return $this->codExperience;
-    }
-
-    /**
-     * @param mixed $codExperience
-     */
-    public function setCodExperience($codExperience)
-    {
-        $this->codExperience = $codExperience;
+        $this->iduser = $iduser;
+        $this->idendereco = $idendereco;
     }
 
     /**
@@ -74,24 +56,6 @@ class Experience
     /**
      * @return mixed
      */
-    public function getLocation()
-    {
-        return $this->location;
-    }
-
-    /**
-     * @param mixed $location
-     * @return User
-     */
-    public function setLocation($location)
-    {
-        $this->location = $location;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getPeriod()
     {
         return $this->period;
@@ -125,4 +89,35 @@ class Experience
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getIdendereco()
+    {
+        return $this->idendereco;
+    }
+
+    /**
+     * @param mixed $idendereco
+     */
+    public function setIdendereco($idendereco)
+    {
+        $this->idendereco = $idendereco;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIduser()
+    {
+        return $this->iduser;
+    }
+
+    /**
+     * @param mixed $iduser
+     */
+    public function setIduser($iduser)
+    {
+        $this->iduser = $iduser;
+    }
 }

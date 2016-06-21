@@ -5,7 +5,7 @@ include_once "database/DatabaseConnector.php";
 class UserController
 
 {
-    private $requiredParameters = array('firstName', 'lastName', 'email', 'password','codMap' );
+    private $requiredParameters = array('firstName', 'lastName', 'email', 'password'     );
 
     public function register($request)
     {
@@ -13,27 +13,41 @@ class UserController
         $user = new User($params["firstName"],
             $params["lastName"],
             $params["email"],
-            $params["password"],
-            $params["codMap"]);
+            $params["password"]);
 
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
 
         $conn = $db->getConnection();
 
+        ($user);
 
-        return $conn->query($this->generateInsertQuery($user));
+        $conn->exec($this->generateInsertQuery($user));
+
     }
 
     private function generateInsertQuery($user)
     {
 
-        $query = "INSERT INTO user (firstName, lastName, email, password, codMap) VALUES ('" . $user->getfirstName() . "','" .
+        $query = "INSERT INTO user (firstName, lastName, email, password) VALUES ('" . $user->getfirstName() . "','" .
             $user->getlastName() . "','" .
             $user->getEmail() . "','" .
-            $user->getpassword() . "','" .
-            $user->getcodMap() . "')";
+            $user->getpassword() . "')";
 
         return $query;
+    }
+
+    public function findById($iduser)
+    {
+        $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
+
+        $conn = $db->getConnection();
+
+        $result = $conn->query("SELECT iduser, firstName, lastName, email, password FROM user WHERE iduser = " .$iduser);
+
+        //foreach($result as $row)
+
+        return $result->fetch(PDO::FETCH_OBJ);
+
     }
 
     public function search($request)
@@ -45,7 +59,7 @@ class UserController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT iduser, firstName, lastName, email, password, codMap FROM user WHERE " . $crit);
+        $result = $conn->query("SELECT iduser, firstName, lastName, email, password FROM user WHERE " . $crit);
 
         //foreach($result as $row)
 
@@ -69,7 +83,7 @@ class UserController
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
         $conn = $db->getConnection();
         foreach ($params as $key => $value) {
-            $result = $conn->query("UPDATE user SET " . $key . " =  '" . $value . "' WHERE firstName = '" . $params["firstName"] . "'");
+            $result = $conn->query("UPDATE user SET " . $key . " =  '" . $value . "' WHERE email = '" . $params["email"] . "'");
         }
         return $result;
     }

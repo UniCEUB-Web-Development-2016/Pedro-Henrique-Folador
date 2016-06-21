@@ -1,27 +1,29 @@
 <?php
 include_once "model/Request.php";
-include_once "model/Map.php";
+include_once "model/Endereco.php";
 include_once "database/DatabaseConnector.php";
-class MapController
+class enderecoController
 {
     public function register($request)
     {
         $params = $request->get_params();
-        $map = new Map($params["location"],
-            $params["latitude"],
-            $params["longitude"]);
+        $endereco = new endereco($params["bairro"],
+            $params["cidade"],
+            $params["estado"],
+            $params["logradouro"]);
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
         $conn = $db->getConnection();
 
 
-        return $conn->query($this->generateInsertQuery($map));
+        return $conn->query($this->generateInsertQuery($endereco));
     }
-    private function generateInsertQuery($map)
+    private function generateInsertQuery($endereco)
     {
-        $query =  "INSERT INTO map (location, latitude, longitude) VALUES 
-        ('".$map->getLocation()."','".
-            $map->getLatitude()."','".
-            $map->getLongitude()."')";
+        $query =  "INSERT INTO endereco (bairro, cidade, estado, logradouro) VALUES 
+        ('".$endereco->getbairro()."','".
+            $endereco->getcidade()."','".
+            $endereco->getestado()."','".
+            $endereco->getlogradouro()."')";
         return $query;
     }
     public function search($request)
@@ -33,7 +35,7 @@ class MapController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT location, latitude, longitude FROM map WHERE " . $crit);
+        $result = $conn->query("SELECT bairro, cidade, estado, logradouro FROM endereco WHERE " . $crit);
 
         //foreach($result as $row)
 
@@ -57,7 +59,7 @@ class MapController
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
         $conn = $db->getConnection();
         foreach ($params as $key => $value) {
-            $result = $conn->query("UPDATE map SET " . $key . " =  '" . $value . "' WHERE location = '" . $params["location"] . "'");
+            $result = $conn->query("UPDATE endereco SET " . $key . " =  '" . $value . "' WHERE bairro = '" . $params["bairro"] . "'");
         }
         return $result;
     }
@@ -67,7 +69,7 @@ class MapController
         $params = $request->get_params();
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
         $conn = $db->getConnection();
-        $result = $conn->query("DELETE FROM map WHERE idmap = '" . $params["idmap"] . "'");
+        $result = $conn->query("DELETE FROM endereco WHERE idendereco = '" . $params["idendereco"] . "'");
         return $result;
     }
 

@@ -53,17 +53,20 @@
 <div class="jumbotron2">
     <div class="container">
 
-        <form class="form-signin" action="postuser.php" method="post">
-            <h2 class="form-signin-heading">Please sign up</h2>
+        <form class="form-signin" action="postexperience.php" method="post">
+            <h2 class="form-signin-heading"> Enter the Experiences  </h2>
 
+            <input type="text" name="companyName" id="companyName" class="form-control" placeholder="Company Name" required autofocus>
 
-            <input type="text" name="firstName" id="inputfirstName" class="form-control" placeholder="First Name" required autofocus>
+            <input type="text" name="title" id="title" class="form-control" placeholder="Title" required autofocus>
 
-            <input type="text" name="lastName"id="inputlastName" class="form-control" placeholder="Last Name" required autofocus>
+            <input type="date" name="period" id="period" class="form-control" placeholder="Period" required autofocus>
 
-            <input type="email" name="email"id="inputemail" class="form-control" placeholder="Email" required autofocus>
+            <input type="text" name="description" id="description" class="form-control" placeholder="Description" required>
 
-            <input type="password" name="password" id="inputpassword" class="form-control" placeholder="Password" required>
+            <input type="text" name="iduser" id="iduser" class="form-control" placeholder="Id User" required>
+
+            <input type="text" name="idendereco" id="idendereco" class="form-control" placeholder="Id Endereco" required>
 
             <button class="button-signup" type="submit">Sign up</button>
 

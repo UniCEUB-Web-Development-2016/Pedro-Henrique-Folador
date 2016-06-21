@@ -13,7 +13,7 @@ class AcademicController
             $params["studyArea"],
             $params["note"],
             $params["activitiesGroups"],
-            $params["codAcademic"],
+            $params["iduser"],
             $params["description"]);
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
         $conn = $db->getConnection();
@@ -23,14 +23,14 @@ class AcademicController
     }
     private function generateInsertQuery($academic)
     {
-        $query =  "INSERT INTO academiceducation (institution, period, formation, studyArea, note, activitiesGroups, codAcademic, description ) VALUES 
+        $query =  "INSERT INTO academiceducation (institution, period, formation, studyArea, note, activitiesGroups, iduser, description ) VALUES 
         ('".$academic->getInstitution()."','".
             $academic->getPeriod()."','".
             $academic->getFormation()."','".
             $academic->getStudyArea()."','".
             $academic->getNote()."','".
             $academic->getactivitiesGroups()."','".
-            $academic->getcodAcademic()."','".
+            $academic->getiduser()."','".
             $academic->getDescription()."')";
         return $query;
     }
@@ -43,7 +43,7 @@ class AcademicController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT institution, period, formation, studyArea, note, activitiesGroups, codAcademic, description  FROM academiceducation WHERE " . $crit);
+        $result = $conn->query("SELECT institution, period, formation, studyArea, note, activitiesGroups, iduser, description  FROM academiceducation WHERE " . $crit);
 
         //foreach($result as $row)
 
@@ -67,7 +67,7 @@ class AcademicController
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
         $conn = $db->getConnection();
         foreach ($params as $key => $value) {
-            $result = $conn->query("UPDATE academiceducation SET " . $key . " =  '" . $value . "' WHERE codAcademic = '" . $params["codAcademic"] . "'");
+            $result = $conn->query("UPDATE academiceducation SET " . $key . " =  '" . $value . "' WHERE iduser = '" . $params["iduser"] . "'");
         }
         return $result;
     }
