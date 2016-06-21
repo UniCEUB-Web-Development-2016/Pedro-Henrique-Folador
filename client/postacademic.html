@@ -53,19 +53,26 @@
 <div class="jumbotron2">
     <div class="container">
 
-        <form class="form-signin" action="postuser.php" method="post">
+        <form class="form-signin" action="postacademic.php" method="post">
             <h2 class="form-signin-heading">Please sign up</h2>
 
 
-            <input type="text" name="firstName" id="inputfirstName" class="form-control" placeholder="First Name" required autofocus>
+            <input type="text" name="institution" id="institution" class="form-control" placeholder="Institution" required autofocus>
 
-            <input type="text" name="lastName"id="inputlastName" class="form-control" placeholder="Last Name" required autofocus>
+            <input type="date" name="period" id="period" class="form-control" placeholder="Period" required autofocus>
 
-            <input type="email" name="email"id="inputemail" class="form-control" placeholder="Email" required autofocus>
+            <input type="text" name="formation" id="formation" class="form-control" placeholder="Formation" required autofocus>
 
-            <input type="text" name="codMap" id="inputcodMap" class="form-control" placeholder="CodMap" required autofocus>
+            <input type="text" name="studyArea" id="studyArea" class="form-control" placeholder="studyArea" required autofocus>
 
-            <input type="password" name="password" id="inputpassword" class="form-control" placeholder="Password" required>
+            <input type="text" name="note" id="note" class="form-control" placeholder="Note" required>
+
+            <input type="text" name="activitiesGroups" id="activitiesGroups" class="form-control" placeholder="ActivitiesGroups" required>
+
+             <input type="text" name="codAcademic" id="codAcademic" class="form-control" placeholder="Cod Academic" required>
+
+             <input type="text" name="description" id="description" class="form-control" placeholder="Description" required>
+
 
             <button class="button-signup" type="submit">Sign up</button>
 
