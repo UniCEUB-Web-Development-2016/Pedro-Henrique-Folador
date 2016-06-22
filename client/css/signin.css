@@ -1,10 +1,4 @@
 body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background:url(../img/map.jpg);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-color: black;
 }
 .form-signin {
   max-width: 330px;
