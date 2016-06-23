@@ -38,21 +38,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getuser.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="getuser.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../client/getuser.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="633">
-              <caret line="96" column="43" selection-start-line="96" selection-start-column="43" selection-end-line="96" selection-end-column="43" />
+            <state relative-caret-position="544">
+              <caret line="98" column="88" selection-start-line="98" selection-start-column="88" selection-end-line="98" selection-end-column="88" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getuser.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../client/getuser.php">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+            <state relative-caret-position="309">
+              <caret line="57" column="79" selection-start-line="57" selection-start-column="79" selection-end-line="57" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -89,12 +89,13 @@
         <option value="$PROJECT_DIR$/../client/postexperience.php" />
         <option value="$PROJECT_DIR$/model/Experience.php" />
         <option value="$PROJECT_DIR$/control/ExperienceController.php" />
-        <option value="$PROJECT_DIR$/../client/getuser.html" />
         <option value="$USER_HOME$/Downloads/Gabriel-Gervasoni-Guedes-master/Gabriel-Gervasoni-Guedes-master/client/error.html" />
         <option value="$PROJECT_DIR$/../client/error.html" />
         <option value="$PROJECT_DIR$/../client/getuser.php" />
         <option value="$PROJECT_DIR$/../client/postexperience.html" />
         <option value="$PROJECT_DIR$/control/UserController.php" />
+        <option value="$USER_HOME$/Downloads/Gabriel-Gervasoni-Guedes-master/Gabriel-Gervasoni-Guedes-master/client/package.php" />
+        <option value="$PROJECT_DIR$/../client/getuser.html" />
       </list>
     </option>
   </component>
@@ -308,12 +309,12 @@
       <workItem from="1466438573652" duration="7194000" />
       <workItem from="1466449384482" duration="16000" />
       <workItem from="1466449535227" duration="5102000" />
-      <workItem from="1466519132061" duration="11676000" />
+      <workItem from="1466519132061" duration="12470000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34953000" />
+    <option name="totallyTimeSpent" value="35747000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -640,14 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../client/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="57" column="36" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/Gabriel-Gervasoni-Guedes-master/Gabriel-Gervasoni-Guedes-master/client/getuser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -696,18 +689,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/Gabriel-Gervasoni-Guedes-master/Gabriel-Gervasoni-Guedes-master/client/package.php">
+    <entry file="file://$USER_HOME$/Downloads/Gabriel-Gervasoni-Guedes-master/Gabriel-Gervasoni-Guedes-master/client/package.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-4314">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/Gabriel-Gervasoni-Guedes-master/Gabriel-Gervasoni-Guedes-master/client/package.html">
+    <entry file="file://$USER_HOME$/Downloads/Gabriel-Gervasoni-Guedes-master/Gabriel-Gervasoni-Guedes-master/client/package.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4314">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="790">
+          <caret line="60" column="20" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../client/getuser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -726,18 +727,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../client/getuser.php">
+    <entry file="file://$PROJECT_DIR$/../client/getuser.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+        <state relative-caret-position="544">
+          <caret line="98" column="88" selection-start-line="98" selection-start-column="88" selection-end-line="98" selection-end-column="88" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../client/getuser.html">
+    <entry file="file://$PROJECT_DIR$/../client/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="96" column="43" selection-start-line="96" selection-start-column="43" selection-end-line="96" selection-end-column="43" />
+        <state relative-caret-position="309">
+          <caret line="57" column="79" selection-start-line="57" selection-start-column="79" selection-end-line="57" selection-end-column="79" />
           <folding />
         </state>
       </provider>

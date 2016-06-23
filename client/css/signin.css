@@ -1,5 +1,6 @@
 body {
 }
+
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -8,7 +9,7 @@ body {
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
-  color: aqua;
+  color: #1824ff;
   margin-bottom: 10px;
 }
 .form-signin .checkbox {
@@ -19,7 +20,7 @@ body {
 
 }
 .button-signup{
-  background-color: aqua;
+  background-color: #00ff13;
   width: 300px;
   padding: 15px;
   margin: 0 auto;
