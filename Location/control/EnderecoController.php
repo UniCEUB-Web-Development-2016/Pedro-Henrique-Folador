@@ -2,12 +2,12 @@
 include_once "model/Request.php";
 include_once "model/Endereco.php";
 include_once "database/DatabaseConnector.php";
-class enderecoController
+class EnderecoController
 {
     public function register($request)
     {
         $params = $request->get_params();
-        $endereco = new endereco($params["bairro"],
+        $end = new End($params["bairro"],
             $params["cidade"],
             $params["estado"],
             $params["logradouro"]);
@@ -15,15 +15,15 @@ class enderecoController
         $conn = $db->getConnection();
 
 
-        return $conn->query($this->generateInsertQuery($endereco));
+        return $conn->query($this->generateInsertQuery($end));
     }
-    private function generateInsertQuery($endereco)
+    private function generateInsertQuery($end)
     {
         $query =  "INSERT INTO endereco (bairro, cidade, estado, logradouro) VALUES 
-        ('".$endereco->getbairro()."','".
-            $endereco->getcidade()."','".
-            $endereco->getestado()."','".
-            $endereco->getlogradouro()."')";
+        ('".$end->getBairro()."','".
+            $end->getCidade()."','".
+            $end->getEstado()."','".
+            $end->getLogradouro()."')";
         return $query;
     }
     public function search($request)
@@ -42,6 +42,7 @@ class enderecoController
         return $result->fetchAll(PDO::FETCH_ASSOC);
 
     }
+
 
     private function generateCriteria($params)
     {

@@ -12,7 +12,7 @@ class ResourceController
             "experience" => "ExperienceController",
             "user" => "UserController",
             "academic" => "AcademicController",
-            "endereco" => "EnderecoController",
+            "end" => "EndController",
         ];
     public function createResource($request)
     {
