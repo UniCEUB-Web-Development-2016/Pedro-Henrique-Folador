@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Jun-2016 às 23:21
+-- Generation Time: 27-Jun-2016 às 08:14
 -- Versão do servidor: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -38,14 +38,6 @@ CREATE TABLE `academiceducation` (
   `iduser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `academiceducation`
---
-
-INSERT INTO `academiceducation` (`idacademic`, `activitiesGroups`, `description`, `formation`, `institution`, `note`, `period`, `studyArea`, `iduser`) VALUES
-(2, 'asdadsasd', 'aseqwe', '0000-00-00', 'qweasd', 'asdasdas', '2016-06-08', 'asfasfas', 49),
-(3, 'qweasd', 'aseqwew', '0000-00-00', 'asqweqwe', 'qweasd', '2016-06-14', 'qweasds', 49);
-
 -- --------------------------------------------------------
 
 --
@@ -54,7 +46,7 @@ INSERT INTO `academiceducation` (`idacademic`, `activitiesGroups`, `description`
 
 CREATE TABLE `endereco` (
   `idendereco` int(11) NOT NULL,
-  `logradouro` text NOT NULL,
+  `logradouro` varchar(255) NOT NULL,
   `cidade` varchar(255) NOT NULL,
   `estado` varchar(255) NOT NULL,
   `bairro` varchar(255) NOT NULL
@@ -65,7 +57,10 @@ CREATE TABLE `endereco` (
 --
 
 INSERT INTO `endereco` (`idendereco`, `logradouro`, `cidade`, `estado`, `bairro`) VALUES
-(1, 'aewasd', 'asdse', 'esawe', 'asewaas');
+(1, 'aewasd', 'asdse', 'esawe', 'asewaas'),
+(2, 'Teste', 'Tretas', 'asdsaa', 'seinao'),
+(3, 'asrase', 'teste', 'teaste', 'teste'),
+(4, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -83,14 +78,6 @@ CREATE TABLE `experience` (
   `idendereco` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `experience`
---
-
-INSERT INTO `experience` (`idexperience`, `companyName`, `description`, `period`, `title`, `iduser`, `idendereco`) VALUES
-(4, 'tqweased', 'qwease', '2016-06-01', 'qwease', 49, 1),
-(5, 'asdasqwe', 'qweasd', '2016-06-14', 'asdqwe', 53, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -102,26 +89,16 @@ CREATE TABLE `user` (
   `email` varchar(100) NOT NULL,
   `lastName` varchar(50) NOT NULL,
   `firstName` varchar(50) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `phone` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `user`
 --
 
-INSERT INTO `user` (`iduser`, `email`, `lastName`, `firstName`, `password`) VALUES
-(49, 'aweqa@aaewa.com', 'teaseq', 'teste', 'ase1q12'),
-(50, 'teste@tesate.com', 'testamos', 'teste', 'q213asd'),
-(51, 'pedrotas@teae.com', 'teasre', 'teste', 'asd123'),
-(52, 'apoek@qwe.com', 'qweopqdas', 'teae', '123ase'),
-(53, 'aweop@awe.com', 'qweas', 'teawe', '123ase'),
-(55, 'qw3e@23.com', '123', '123ase', '123'),
-(56, 'qweas@awe.com', 'asd', 'twqwasd', 'asd123as'),
-(57, 'asd123@ase.com', 'asdqw312', 'asd213', '123asd'),
-(58, 'asd213@as3.com', 'asd123', 'safafsa', '123as'),
-(59, 'asd213@as3.com', 'asd123', 'safafsa1', 'as213'),
-(60, 'qweas@ase.com', 'qweas', 'teaste', '123asd'),
-(61, 'pedro@pedro.com', 'pedro', 'pedro', 'abc123');
+INSERT INTO `user` (`iduser`, `email`, `lastName`, `firstName`, `password`, `phone`) VALUES
+(67, 'pedro@pedro.com', 'Henrique', 'Pedro', '564564321', 'abc123');
 
 --
 -- Indexes for dumped tables
@@ -162,22 +139,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `academiceducation`
 --
 ALTER TABLE `academiceducation`
-  MODIFY `idacademic` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idacademic` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `endereco`
 --
 ALTER TABLE `endereco`
-  MODIFY `idendereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idendereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `experience`
 --
 ALTER TABLE `experience`
-  MODIFY `idexperience` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idexperience` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 --
 -- Constraints for dumped tables
 --
