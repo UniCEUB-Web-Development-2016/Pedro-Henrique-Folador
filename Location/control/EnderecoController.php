@@ -7,23 +7,23 @@ class EnderecoController
     public function register($request)
     {
         $params = $request->get_params();
-        $end = new End($params["bairro"],
+        $endereco = new Endereco ($params["logradouro"],
             $params["cidade"],
             $params["estado"],
-            $params["logradouro"]);
+            $params["bairro"]);
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
         $conn = $db->getConnection();
 
 
-        return $conn->query($this->generateInsertQuery($end));
+        return $conn->query($this->generateInsertQuery($endereco));
     }
-    private function generateInsertQuery($end)
+    private function generateInsertQuery($endereco)
     {
-        $query =  "INSERT INTO endereco (bairro, cidade, estado, logradouro) VALUES 
-        ('".$end->getBairro()."','".
-            $end->getCidade()."','".
-            $end->getEstado()."','".
-            $end->getLogradouro()."')";
+        $query =  "INSERT INTO endereco (logradouro, cidade, estado, bairro) VALUES 
+        ('".$endereco->getLogradouro()."','".
+            $endereco->getCidade()."','".
+            $endereco->getEstado()."','".
+            $endereco->getBairro()."')";
         return $query;
     }
     public function search($request)
@@ -35,14 +35,13 @@ class EnderecoController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT bairro, cidade, estado, logradouro FROM endereco WHERE " . $crit);
+        $result = $conn->query("SELECT *  FROM endereco WHERE " . $crit);
 
         //foreach($result as $row)
 
         return $result->fetchAll(PDO::FETCH_ASSOC);
 
     }
-
 
     private function generateCriteria($params)
     {
@@ -60,7 +59,7 @@ class EnderecoController
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
         $conn = $db->getConnection();
         foreach ($params as $key => $value) {
-            $result = $conn->query("UPDATE endereco SET " . $key . " =  '" . $value . "' WHERE bairro = '" . $params["bairro"] . "'");
+            $result = $conn->query("UPDATE endereco SET " . $key . " =  '" . $value . "' WHERE idendereco = '" . $params["idendereco"] . "'");
         }
         return $result;
     }
@@ -82,4 +81,5 @@ class EnderecoController
         if (empty($diff2) && empty($diff1))
             return false;
     }
+
 }

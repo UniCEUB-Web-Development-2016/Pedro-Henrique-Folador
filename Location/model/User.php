@@ -6,13 +6,31 @@ class User
     private $lastName;
     private $email;
     private $password;
+    private $phone;
     public function __construct($firstName, $lastName,
-                                $email, $password)
+                                $email, $password,$phone)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->email = $email;
         $this->password = $password;
+        $this->phone = $phone;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param mixed $phone
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
     }
 
     /**

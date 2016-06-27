@@ -1,33 +1,33 @@
 <?php
-class Map
+class Endereco
 {
-    private $bairro;
+    private $logradouro;
     private $cidade;
     private $estado;
-    private $logradouro;
-    public function __construct($bairro, $cidade,
-                                $estado, $logradouro)
+    private $bairro;
+    public function __construct($logradouro, $cidade,
+                                $estado, $bairro)
     {
-        $this->bairro   = $bairro;
+        $this->logradouro = $logradouro;
         $this->cidade = $cidade;
         $this->estado = $estado;
-        $this->logradouro = $logradouro;
+        $this->bairro = $bairro;
     }
 
     /**
      * @return mixed
      */
-    public function getBairro()
+    public function getLogradouro()
     {
-        return $this->bairro;
+        return $this->logradouro;
     }
 
     /**
-     * @param mixed $bairro
+     * @param mixed $logradouro
      */
-    public function setBairro($bairro)
+    public function setLogradouro($logradouro)
     {
-        $this->bairro = $bairro;
+        $this->logradouro = $logradouro;
     }
 
     /**
@@ -65,17 +65,17 @@ class Map
     /**
      * @return mixed
      */
-    public function getLogradouro()
+    public function getBairro()
     {
-        return $this->logradouro;
+        return $this->bairro;
     }
 
     /**
-     * @param mixed $logradouro
+     * @param mixed $bairro
      */
-    public function setLogradouro($logradouro)
+    public function setBairro($bairro)
     {
-        $this->logradouro = $logradouro;
+        $this->bairro = $bairro;
     }
 
 

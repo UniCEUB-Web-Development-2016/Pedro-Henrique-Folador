@@ -5,7 +5,7 @@ include_once "database/DatabaseConnector.php";
 class UserController
 
 {
-    private $requiredParameters = array('firstName', 'lastName', 'email', 'password'     );
+    private $requiredParameters = array('firstName', 'lastName', 'email', 'phone', 'password'  );
 
     public function register($request)
     {
@@ -13,6 +13,7 @@ class UserController
         $user = new User($params["firstName"],
             $params["lastName"],
             $params["email"],
+            $params["phone"],
             $params["password"]);
 
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
@@ -28,9 +29,10 @@ class UserController
     private function generateInsertQuery($user)
     {
 
-        $query = "INSERT INTO user (firstName, lastName, email, password) VALUES ('" . $user->getfirstName() . "','" .
+        $query = "INSERT INTO user (firstName, lastName, email, phone, password) VALUES ('" . $user->getfirstName() . "','" .
             $user->getlastName() . "','" .
             $user->getEmail() . "','" .
+            $user->getPhone() . "','" .
             $user->getpassword() . "')";
 
         return $query;
@@ -42,7 +44,7 @@ class UserController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT iduser, firstName, lastName, email, password FROM user WHERE iduser = " .$iduser);
+        $result = $conn->query("SELECT iduser, firstName, lastName, email, phone, password FROM user WHERE iduser = " .$iduser);
 
         //foreach($result as $row)
 
@@ -59,7 +61,7 @@ class UserController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT iduser, firstName, lastName, email, password FROM user WHERE " . $crit);
+        $result = $conn->query("SELECT * FROM user WHERE email='email' AND password='password'LIMIT 1" . $crit);
 
         //foreach($result as $row)
 

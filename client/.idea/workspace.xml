@@ -109,6 +109,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files" />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -128,9 +131,6 @@
             </PATH_ELEMENT>
           </PATH>
         </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files" />
       </pane>
       <pane id="Scratches" />
     </panes>
@@ -197,17 +197,18 @@
       <workItem from="1466519113026" duration="18000" />
       <workItem from="1466638712565" duration="5321000" />
       <workItem from="1466711808435" duration="39000" />
+      <workItem from="1466988857627" duration="613000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5440000" />
+    <option name="totallyTimeSpent" value="6053000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26332623" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26599148" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -263,13 +264,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/signup.html" />
     <entry file="file://$PROJECT_DIR$/signup2.html" />
-    <entry file="file://$PROJECT_DIR$/css/signin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/css/signin.css" />
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -277,13 +272,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/getuser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/getuser.php" />
     <entry file="file://$PROJECT_DIR$/insertuser.php" />
     <entry file="file://$PROJECT_DIR$/signup.html" />
     <entry file="phar://$PROJECT_DIR$/httpful.phar/.phar/stub.php">
@@ -341,20 +330,8 @@
     </entry>
     <entry file="file://$USER_HOME$/Downloads/Fabio-Carvalho-Moreira-master/Fabio-Carvalho-Moreira-master/DataTest/Client/navbar.php" />
     <entry file="file://$USER_HOME$/Downloads/Fabio-Carvalho-Moreira-master/Fabio-Carvalho-Moreira-master/DataTest/Client/index.php" />
-    <entry file="file://$PROJECT_DIR$/css/jumbotron.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/jumbotron.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/css/jumbotron.js" />
+    <entry file="file://$PROJECT_DIR$/css/jumbotron.css" />
     <entry file="file://$USER_HOME$/Downloads/Fabio-Carvalho-Moreira-master/Fabio-Carvalho-Moreira-master/DataTest/Client/Command/login.php" />
     <entry file="file://$PROJECT_DIR$/../Location/control/ExperienceController.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -363,46 +340,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/getuser.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="30" column="31" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/getuser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/getendereco.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/getendereco.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="30" column="31" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="3" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/map.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/getuser.html" />
+    <entry file="file://$PROJECT_DIR$/getuser.php" />
+    <entry file="file://$PROJECT_DIR$/getendereco.php" />
+    <entry file="file://$PROJECT_DIR$/getendereco.html" />
+    <entry file="file://$PROJECT_DIR$/js/client.js" />
+    <entry file="file://$PROJECT_DIR$/img/map.jpg" />
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
@@ -410,13 +353,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/signin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/css/signin.css" />
     <entry file="file://$PROJECT_DIR$/postuser.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="479">
@@ -445,20 +382,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/Lucas-Santos-Rosa-master/Lucas-Santos-Rosa-master/PriceTracking(Client)/Client/navbar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/Lucas-Santos-Rosa-master/Lucas-Santos-Rosa-master/PriceTracking(Client)/Client/Register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/Lucas-Santos-Rosa-master/Lucas-Santos-Rosa-master/PriceTracking(Client)/Client/navbar.php" />
+    <entry file="file://$USER_HOME$/Downloads/Lucas-Santos-Rosa-master/Lucas-Santos-Rosa-master/PriceTracking(Client)/Client/Register.php" />
     <entry file="file://$PROJECT_DIR$/postexperience.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">

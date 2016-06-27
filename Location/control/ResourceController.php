@@ -12,7 +12,7 @@ class ResourceController
             "experience" => "ExperienceController",
             "user" => "UserController",
             "academic" => "AcademicController",
-            "end" => "EndController",
+            "endereco" => "EnderecoController",
         ];
     public function createResource($request)
     {
@@ -22,7 +22,6 @@ class ResourceController
     {
         return (new $this->controlMap[$request->get_resource()]())->search($request);
     }
-
     public function updateResource($request)
     {
         return (new $this->controlMap[$request->get_resource()]())->update($request);
@@ -32,4 +31,5 @@ class ResourceController
     {
         return (new $this->controlMap[$request->get_resource()]())->delete($request);
     }
+
 }
