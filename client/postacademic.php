@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Point to where you downloaded the phar
 include('httpful.phar');
 
@@ -10,7 +12,12 @@ $url = "http://localhost/location/academic/?institution=".$_POST['institution']
     ."&note=".$_POST['note']
     ."&activitiesGroups=".$_POST['activitiesGroups']
     ."&description=".$_POST['description']
-    ."&iduser=".$_POST['iduser'];
+    ."&iduser=".$_SESSION['iduser'];
 
 $response = \Httpful\Request::post($url)->send();
-echo "cadastrado com sucesso!";
+if($response->body == 'false'){
+    echo('Erro ao cadastrar');
+}
+else{
+    header('location:profile.php');
+}

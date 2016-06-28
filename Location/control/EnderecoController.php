@@ -15,7 +15,10 @@ class EnderecoController
         $conn = $db->getConnection();
 
 
-        return $conn->query($this->generateInsertQuery($endereco));
+        $conn->query($this->generateInsertQuery($endereco));
+        
+        return array('uid'=>$conn->lastInsertId());
+
     }
     private function generateInsertQuery($endereco)
     {

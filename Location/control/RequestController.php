@@ -8,12 +8,11 @@ class RequestController
     public function createRequest($protocol, $method, $uri, $server_addr)
     {
         $uri_array = explode("/", $uri);
-
         return new Request(
             $protocol,
             $method,
-            $uri_array[2],
-            $this->getParams($uri_array[3]),
+            $uri_array[2],//no seu é 2
+            $this->getParams($uri_array[3]),//no seu é 3
             $server_addr);
 
     }

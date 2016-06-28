@@ -28,6 +28,8 @@ class ExperienceController
             $params["idendereco"]);
 
         $conn->query($this->generateInsertQuery($experience));
+
+         return array('uid'=>$conn->lastInsertId());
     }
 
     private function generateInsertQuery($experience)
@@ -41,17 +43,7 @@ class ExperienceController
             $experience->getidendereco()."')";
         return $query;
     }
-
-//    private function generateInsertQueryParaEndereco($endereco)
-//    {
-//        $query =  "INSERT INTO endereco (logradouro, cidade) VALUES 
-//        ('".$endereco->getLogradouro()."','".
-//            $endereco->getCidade()."','".
-//            $endereco->getEstado()."','".
-//            $endereco->getBairro()."')";
-//        return $query;
-//    }
-
+    
     public function search($request)
     {
         $params = $request->get_params();
@@ -61,7 +53,12 @@ class ExperienceController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT companyName, title,  period, description, iduser, idenreco FROM experience WHERE " . $crit);
+        $sql = "SELECT estado,bairro,idexperience,companyName, title,  period, description, iduser, experience.idendereco FROM experience inner join endereco on (endereco.idendereco = experience.idendereco ) ";
+        
+        if(count($params)>0)
+            $sql .= " WHERE " . $crit;
+
+        $result = $conn->query($sql);
 
         //foreach($result as $row)
 
@@ -73,7 +70,7 @@ class ExperienceController
     {
         $criteria = "";
         foreach ($params as $key => $value) {
-            $criteria = $criteria . $key . " LIKE '%" . $value . "%' OR ";
+            $criteria = $criteria . $key . " LIKE '%" . $value . "%' and ";
         }
 
         return substr($criteria, 0, -4);

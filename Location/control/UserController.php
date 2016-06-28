@@ -22,8 +22,9 @@ class UserController
 
         ($user);
 
-        $conn->exec($this->generateInsertQuery($user));
+        $result = $conn->exec($this->generateInsertQuery($user));
 
+        return array('uid'=>$conn->lastInsertId());
     }
 
     private function generateInsertQuery($user)
@@ -46,6 +47,7 @@ class UserController
 
         $result = $conn->query("SELECT iduser, firstName, lastName, email, phone, password FROM user WHERE iduser = " .$iduser);
 
+
         //foreach($result as $row)
 
         return $result->fetch(PDO::FETCH_OBJ);
@@ -56,16 +58,16 @@ class UserController
     {
         $params = $request->get_params();
         $crit = $this->generateCriteria($params);
-
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
 
         $conn = $db->getConnection();
-
-        $result = $conn->query("SELECT * FROM user WHERE email='email' AND password='password'LIMIT 1" . $crit);
-
+        
+        $sql = "SELECT * FROM user WHERE email='".$params['email']."' LIMIT 1" ;
+        
+        $result = $conn->query($sql);
         //foreach($result as $row)
 
-        return $result->fetchAll(PDO::FETCH_ASSOC);
+        return $result->fetch();
 
     }
 

@@ -19,62 +19,70 @@ session_start();
     <script src="js/ie-emulation-modes-warning.js"></script>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-</head>
-<body id="page-top" class="index">
+    <link href="css/toolkit.css" rel="stylesheet">
+    <link href="css/application.css" rel="stylesheet">
 
-<!-- Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top">
+<body class="ang">
+
+<nav class="ck pc os app-navbar">
     <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Location</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+        <div class="or">
+            <button type="button" class="ou collapsed" data-toggle="collapse" data-target="#navbar-collapse-main">
+                <span class="cv">Toggle navigation</span>
+                <span class="ov"></span>
+                <span class="ov"></span>
+                <span class="ov"></span>
             </button>
-            <a class="navbar-brand" href="login.php">Home</a>
+        </div>
+        <div class="f collapse" id="navbar-collapse-main">
+
+            <ul class="nav navbar-nav ss">
+                <li class="active">
+                    <a href="login.php">Home</a>
+                </li>
+                <li>
+                    <a href="profile.php">Meu Perfil</a>
+                </li>
+                <li>
+                    <a href="viewpostexperience.php">Viwer Experiences Locations</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
-<section class="success" id="about">
+<section class="ck pc " id="about">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>Welcome to Job Finder</h2>
+                <h2>Welcome to work Locator</h2>
                 <hr class="star-light">
             </div>
         </div>
         <div class="row">
             <div class="text-center">
-                <p>Welcome to the finder of jobs, here you will find all professionals in your are to know which place to look for jobs</p>
+                <p>Welcome to the locator of jobs, here you will find all the professionals to know which place seek employment</p>
             </div>
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <a href="postuser.html" class="btn btn-lg btn-outline">
-                    <i class="fa fa-download"></i> Create Account
+                    <i class="fa fa-download"></i> Sign Up
                 </a>
             </div>
         </div>
     </div>
 </section>
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="js/classie.js"></script>
-<script src="js/cbpAnimatedHeader.js"></script>
-<script src="js/jqBootstrapValidation.js"></script>
-<script src="js/contact_me.js"></script>
-<script src="js/freelancer.js"></script>
 <div class="container">
     <div class="row" id="pwd-container">
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <section class="login-form">
                 <form method="post" action="validLogin.php" role="login">
-                    <img src="http://identityview.net/wp-content/themes/identityview/templates/-6544-single.jpg" class="img-responsive" alt="" />
+                    <img src="http://identityview.net/wp-content/themes/identityview/templates/-6544-single.jpg"
+                         class="img-responsive" alt=""/>
                     <h2 class="form-signin-heading text-center">Log into</h2>
-                    <input type="email" name="email" class="form-control input-lg" placeholder="Email" required autofocus />
-                    <input type="password" class="form-control input-lg" name="password" placeholder="Password" required />
+                    <input type="email" name="email" class="form-control input-lg" placeholder="Email" required
+                           autofocus/>
+                    <input type="password" class="form-control input-lg" name="password" placeholder="Password"
+                           required/>
                     <div class="checkbox2">
                         <label>
                             <input type="checkbox" value="remember-me"> Remember me
@@ -82,11 +90,6 @@ session_start();
                     </div>
                     <div class="pwstrength_viewport_progress"></div>
                     <button type="submit" class="btn btn-lg btn-success btn-block">Sign in</button>
-
-                    <div>
-                        <a href="#">reset password</a>
-                    </div>
-
                 </form>
             </section>
         </div>
@@ -95,7 +98,6 @@ session_start();
 
 
     </div>
-
 
 
 </div>

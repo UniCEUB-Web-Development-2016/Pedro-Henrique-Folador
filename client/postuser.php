@@ -10,6 +10,9 @@ $url = "http://localhost/location/user/?firstName=".$_POST['firstName']
     ."&password=".$_POST['password'];
 
 $response = \Httpful\Request::post($url)->send();
+$retorno = json_decode($response->body);
+
+echo $retorno->uid;
 
 if($response->body == 'false'){
     echo('Erro ao cadastrar');
