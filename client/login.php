@@ -47,6 +47,9 @@ session_start();
                     <a href="viewpostexperience.php">Viwer Experiences Locations</a>
                 </li>
             </ul>
+            <p class="navbar-text navbar-right"> <a href="profile.php" class="navbar-link"> <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?></a>&emsp;
+                <a href="logout.php" class="navbar-link">Logout</a>
+            </p>
         </div>
     </div>
 </nav>
@@ -93,14 +96,9 @@ session_start();
                 </form>
             </section>
         </div>
-
         <div class="col-md-4"></div>
-
-
     </div>
-
-
 </div>
-<script src="js/ie10-viewport-bug-workaround.js"></script>
 </body>
+<script src="js/ie10-viewport-bug-workaround.js"></script>
 </html>

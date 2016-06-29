@@ -31,6 +31,8 @@ if (!empty($_SESSION['email'])) {
         $dados['password'] = $request_response->password;
 
     }
+} else {
+    header('location:error2.html');
 }
 
 
@@ -81,24 +83,37 @@ if (!empty($_SESSION['email'])) {
                 <li>
                     <a href="profile.php">Meu Perfil</a>
                 </li>
+                <li>
+                    <a href="viewpostexperience.php">Viwer Experiences Locations</a>
+                </li>
             </ul>
+            <p class="navbar-text navbar-right"> <a href="profile.php" class="navbar-link"> <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?></a>&emsp;
+                <a href="logout.php" class="navbar-link">Logout</a>
+            </p>
         </div>
     </div>
+
 </nav>
-<div class="container">
+<div class="container ang">
     <div class="row">
         <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+        <div
+            class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
 
 
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Cris</h3>
+                    <p class="panel-info"> <?php
+                        $mydate = getdate(date("U"));
+                        echo "$mydate[weekday], $mydate[month] $mydate[mday], $mydate[year]";
+                        ?> </p>
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://cdn0.iconfinder.com/data/icons/large-glossy-icons/512/User_login.png" class="img-circle img-responsive"> </div>
+                        <div class="col-md-3 col-lg-3 " align="center"><img alt="User Pic"
+                                                                            src="https://cdn0.iconfinder.com/data/icons/large-glossy-icons/512/User_login.png"
+                                                                            class="img-circle img-responsive"></div>
                         <div class=" col-md-9 col-lg-9 ">
                             <form action="profile.php" method="post">
                                 <table class="table table-user-information">
@@ -139,8 +154,8 @@ if (!empty($_SESSION['email'])) {
                                     </tr>
                                 </table>
                             </form>
-                            <a href="postexperience.html" class="btn btn-warning">CREATE EXPERIENCE</a>
-                            <a href="postacademic.html" class="btn btn-info ">CREATE ACADEMIC</a>
+                            <a href="postexperience2.php" class="btn btn-warning">CREATE EXPERIENCE</a>
+                            <a href="postacademic2.php" class="btn btn-info ">CREATE ACADEMIC</a>
                         </div>
                     </div>
                 </div>

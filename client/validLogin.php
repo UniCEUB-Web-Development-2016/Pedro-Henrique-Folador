@@ -15,8 +15,6 @@ if ($response->code == 200) {
         header("Location: profile.php");
 
     } else {
-        empty($request_response);
-        $_SESSION['loginErro'] = "User or Password Invalid";
-        header("Location: login.php");
+        header('location:error.html');
     }
 }
