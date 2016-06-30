@@ -4,12 +4,14 @@ include_once "control/UserController.php";
 include_once "control/AcademicController.php";
 include_once "control/ExperienceController.php";
 include_once "control/EnderecoController.php";
+include_once "control/ExperienceChartController.php";
 
 class ResourceController
 {
     private $controlMap =
         [
             "experience" => "ExperienceController",
+            "experienceChart" => "ExperienceChartController",
             "user" => "UserController",
             "academic" => "AcademicController",
             "endereco" => "EnderecoController",

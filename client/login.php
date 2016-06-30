@@ -35,20 +35,23 @@ session_start();
             </button>
         </div>
         <div class="f collapse" id="navbar-collapse-main">
-
             <ul class="nav navbar-nav ss">
                 <li class="active">
                     <a href="login.php">Home</a>
                 </li>
+                <?php if (!empty($_SESSION['firstName'])){ ?>
+                    <li>
+                        <a href="profile.php">Meu Perfil</a>
+                    </li>
+                <?php } ?>
                 <li>
-                    <a href="profile.php">Meu Perfil</a>
-                </li>
-                <li>
-                    <a href="viewpostexperience.php">Viwer Experiences Locations</a>
+                    <a href="chart.php">Viwer Experiences Locations</a>
                 </li>
             </ul>
-            <p class="navbar-text navbar-right"> <a href="profile.php" class="navbar-link"> <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?></a>&emsp;
+            <?php if (!empty($_SESSION['firstName'])){ ?>
+                <p class="navbar-text navbar-right"> <a href="profile.php" class="navbar-link"> <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?></a>&emsp;
                 <a href="logout.php" class="navbar-link">Logout</a>
+            <?php } ?>
             </p>
         </div>
     </div>

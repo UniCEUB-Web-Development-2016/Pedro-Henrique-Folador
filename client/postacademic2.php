@@ -1,5 +1,13 @@
 <?php
-session_start();
+    session_start();
+    include('httpful.phar');
+    if (@$_GET['acao']=='editar'){
+        $idacademic = $_GET['idacademic'];
+
+        $response = \Httpful\Request::get('http://localhost/location/academic/?idacademic='.$idacademic)->send();
+        $request_response = json_decode($response->body);
+        $request_response = $request_response[0];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -44,9 +52,16 @@ session_start();
                 <li class="active">
                     <a href="login.php">Home</a>
                 </li>
-                <li>
-                    <a href="profile.php">Meu Perfil</a>
                 </li>
+                <?php if (!empty($_SESSION['firstName'])){ ?>
+                    <li>
+                        <a href="profile.php">Meu Perfil</a>
+                    </li>
+                <?php } ?>
+                <li>
+                    <a href="chart.php">Viwer Experiences Locations</a>
+                </li>
+
             </ul>
             <p class="navbar-text navbar-right"> <a href="profile.php" class="navbar-link"> <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?></a>&emsp;
                 <a href="logout.php" class="navbar-link">Logout</a>
@@ -70,39 +85,40 @@ session_start();
                 <form class="form-signin" action="postacademic.php" method="post">
                     <div class="form-group">
                         <label>Institution</label>
-                        <input type="text" name="institution" id="institution" class="form-control" placeholder="Institution" required autofocus>
+                        <input value="<?php echo @$request_response->idacademic?>" name="idacademic" type="hidden">
+                        <input type="text" value="<?php echo @$request_response->institution?>" name="institution" id="institution" class="form-control" placeholder="Institution" required autofocus>
                     </div>
                     <div class="form-group">
                         <label>Period</label>
-                        <input type="date" name="period" id="period" class="form-control" placeholder="Period" required >
+                        <input type="date" value="<?php echo @$request_response->period?>" name="period" id="period" class="form-control" placeholder="Period" required >
                     </div>
                     <div class="form-group">
                         <label>Formation</label>
-                        <input type="text" name="formation" id="formation" class="form-control" placeholder="Formation" required >
+                        <input type="date" value="<?php echo @$request_response->formation?>" name="formation" id="formation" class="form-control" placeholder="Formation" required >
                     </div>
                     <div class="form-group">
                         <label>StudyArea</label>
-                        <input type="text" name="studyArea" id="studyArea" class="form-control" placeholder="studyArea" required >
+                        <input type="text" value="<?php echo @$request_response->studyArea?>" name="studyArea" id="studyArea" class="form-control" placeholder="studyArea" required >
                     </div>
                     <div class="form-group">
                         <label>Note</label>
-                        <input type="text" name="note" id="note" class="form-control" placeholder="Note" required>
+                        <input type="text" value="<?php echo @$request_response->note?>" name="note" id="note" class="form-control" placeholder="Note" required>
                     </div>
                     <div class="form-group">
                         <label>Activities Groups</label>
-                        <input type="text" name="activitiesGroups" id="activitiesGroups" class="form-control" placeholder="Activities Groups" required>
+                        <input type="text" value="<?php echo @$request_response->activitiesGroups?>" name="activitiesGroups" id="activitiesGroups" class="form-control" placeholder="Activities Groups" required>
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <input type="text" name="description" id="description" class="form-control" placeholder="Description" required>
+                        <input type="text" value="<?php echo @$request_response->description?>"  name="description" id="description" class="form-control" placeholder="Description" required>
                     </div>
+
                     <div class="form-group">
-                        <label>Logradouro</label>
-                        <input type="text" name="logradouro" id="logradouro" class="form-control"
-                               placeholder="Logradouro" required>
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-success" type="submit">Save</button>
+                        <?php if (@$_GET['acao']=='editar'){ ?>
+                            <button class="btn btn-success" name="acao" value="editar" type="submit">Save</button>
+                        <?php } else { ?>
+                            <button class="btn btn-success" value="salvar"  type="submit">Save</button>
+                        <?php } ?>
                     </div>
                 </form>
             </div>

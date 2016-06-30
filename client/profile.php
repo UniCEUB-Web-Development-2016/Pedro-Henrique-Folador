@@ -80,11 +80,13 @@ if (!empty($_SESSION['email'])) {
                 <li class="active">
                     <a href="login.php">Home</a>
                 </li>
+                <?php if (!empty($_SESSION['firstName'])){ ?>
+                    <li>
+                        <a href="profile.php">Meu Perfil</a>
+                    </li>
+                <?php } ?>
                 <li>
-                    <a href="profile.php">Meu Perfil</a>
-                </li>
-                <li>
-                    <a href="viewpostexperience.php">Viwer Experiences Locations</a>
+                    <a href="chart.php">Viwer Experiences Locations</a>
                 </li>
             </ul>
             <p class="navbar-text navbar-right"> <a href="profile.php" class="navbar-link"> <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?></a>&emsp;
@@ -162,8 +164,126 @@ if (!empty($_SESSION['email'])) {
             </div>
         </div>
     </div>
-</div>
-</div>
+    <div class="row">
+        <div class="col-md-6"><h3>espe</h3></div>
+    </div>
+    <div class="row" style="background-color: #fff">
+        <div class="col-md-12">
+            <table class="table" id="example">
+    <thead>
+        <tr>
+            <th>Pessoa</th>
+            <th>Companhia</th>
+            <th>Descricao</th>
+            <th>Bairro</th>
+            <th>Estado</th>
+            <th>Ações</th>
+        </tr>
+
+    </thead>
+    <tbody>
+
+
+<?php
+$urlpametro = array();
+
+if (!empty($_POST['bairro'])) $urlpametro[] = 'bairro='.$_POST['bairro'];
+if (!empty($_POST['companyName'])) $urlpametro[] = 'companyName='.$_POST['companyName'];
+
+$urlpametro = implode('&', $urlpametro);
+if (!empty($urlpametro)) {
+    $urlpametro = '?'.$urlpametro;
+} else{
+
+    $urlpametro = '?1=1';
+}
+
+$response = \Httpful\Request::get('http://localhost/location/experience/?user.iduser='.$_SESSION['iduser'])->send();
+$request_response = json_decode($response->body);
+?>
+
+  <?php
+foreach ($request_response as $key => $value) {?>
+      <tr>
+        <td><?php echo $value->firstName ?></td>
+        <td><?php echo $value->companyName ?></td>
+        <td><?php echo $value->description ?></td>
+        <td><?php echo $value->bairro ?></td>
+        <td><?php echo $value->estado ?></td>
+        <td><a class="glyphicon glyphicon-pencil" href="postexperience2.php?acao=editar&idexperience=<?php echo $value->idexperience ?>&idendereco=<?php echo $value->idendereco ?>">&nbsp;&nbsp;
+                <a class="glyphicon glyphicon-remove" href="deleteexperience.php?acao=deletar&idexperience=<?php echo $value->idexperience ?>&idendereco=<?php echo $value->idendereco ?>"></td>
+      </tr>
+
+<?php }
+ ?>
+    </tbody>
+  </table>
+        </div>
+    </div>
+   <br>
+    <br>
+    <div class="row">
+        <div class="col-md-6"><h3>espe</h3></div>
+    </div>
+    <div class="row" style="background-color: #fff">
+        <div class="col-md-12">
+            <table class="table" id="example">
+                <thead>
+                <tr>
+                    <th>Pessoa</th>
+                    <th>Institution</th>
+                    <th>Period</th>
+                    <th>formation</th>
+                    <th>studyArea</th>
+                    <th>note</th>
+                    <th>activitiesGroups</th>
+                    <th>description</th>
+                    <th>Ações</th>
+                </tr>
+
+                </thead>
+                <tbody>
+
+
+                <?php
+                $urlpametro = array();
+
+                if (!empty($_POST['bairro'])) $urlpametro[] = 'bairro='.$_POST['bairro'];
+                if (!empty($_POST['companyName'])) $urlpametro[] = 'companyName='.$_POST['companyName'];
+
+                $urlpametro = implode('&', $urlpametro);
+                if (!empty($urlpametro)) {
+                    $urlpametro = '?'.$urlpametro;
+                } else{
+
+                    $urlpametro = '?1=1';
+                }
+
+                $response = \Httpful\Request::get('http://localhost/location/academic/?user.iduser='.$_SESSION['iduser'])->send();
+                $request_response = json_decode($response->body);
+                ?>
+
+                <?php
+                foreach ($request_response as $key => $value) {?>
+                    <tr>
+                        <td><?php echo $value->firstName ?></td>
+                        <td><?php echo $value->institution ?></td>
+                        <td><?php echo $value->period ?></td>
+                        <td><?php echo $value->formation ?></td>
+                        <td><?php echo $value->studyArea ?></td>
+                        <td><?php echo $value->note ?></td>
+                        <td><?php echo $value->activitiesGroups ?></td>
+                        <td><?php echo $value->description ?></td>
+                        <td><a class="glyphicon glyphicon-pencil" href="postacademic2.php?acao=editar&idacademic=<?php echo $value->idacademic ?>">&nbsp;&nbsp;
+                                <a class="glyphicon glyphicon-remove" href="deleteacademic.php?acao=deletar&idacademic=<?php echo $value->idacademic ?>"></td>
+                    </tr>
+
+                <?php }
+                ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 </body>

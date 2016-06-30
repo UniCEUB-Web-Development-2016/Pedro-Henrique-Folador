@@ -53,11 +53,13 @@ class ExperienceController
 
         $conn = $db->getConnection();
 
-        $sql = "SELECT estado,bairro,idexperience,companyName, title,  period, description, iduser, experience.idendereco FROM experience inner join endereco on (endereco.idendereco = experience.idendereco ) ";
+         $sql = "SELECT logradouro,cidade,endereco.idendereco, firstName,estado,bairro,idexperience,companyName, title,  period, description, user.iduser, experience.idendereco 
+FROM experience inner join endereco on (endereco.idendereco = experience.idendereco ) inner join user on (user.iduser = experience.iduser)";
         
         if(count($params)>0)
             $sql .= " WHERE " . $crit;
-
+            
+         $sql .= " order by description ";
         $result = $conn->query($sql);
 
         //foreach($result as $row)
@@ -82,7 +84,7 @@ class ExperienceController
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
         $conn = $db->getConnection();
         foreach ($params as $key => $value) {
-            $result = $conn->query("UPDATE experience SET " . $key . " =  '" . $value . "' WHERE Iduser = '" . $params["Iduser"] . "'");
+            $result = $conn->query("UPDATE experience SET " . $key . " =  '" . $value . "' WHERE idexperience = '" . $params["idexperience"] . "'");
         }
         return $result;
     }
@@ -93,6 +95,7 @@ class ExperienceController
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
         $conn = $db->getConnection();
         $result = $conn->query("DELETE FROM experience WHERE idexperience = '" . $params["idexperience"] . "'");
+        $result = $conn->query("DELETE FROM endereco WHERE idendereco = '" . $params["idendereco"] . "'");
         return $result;
     }
 

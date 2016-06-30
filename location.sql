@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 29-Jun-2016 às 19:42
+-- Generation Time: 01-Jul-2016 às 01:37
 -- Versão do servidor: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -43,11 +43,7 @@ CREATE TABLE `academiceducation` (
 --
 
 INSERT INTO `academiceducation` (`idacademic`, `activitiesGroups`, `description`, `formation`, `institution`, `note`, `period`, `studyArea`, `iduser`) VALUES
-(5, 'aseae', 'asease', '0000-00-00', 'aseasesa', 'asease', '2016-06-08', 'aseasea', 67),
-(6, 'aseaesaesa', 'aseasease', '0000-00-00', 'aseaseaeas', 'aseasease', '2016-06-09', 'aseasease', 68),
-(7, 'easeaseae', 'aseaseaseas', '0000-00-00', 'aseaseas', 'asesaeaseas', '2016-06-01', 'saeasease', 67),
-(9, 'eqeqeq', 'ewqeqeqe', '0000-00-00', 'awease', 'qewqewqewq', '2016-06-10', 'eqweqwewqe', 67),
-(10, 'eqeqeq', 'ewqeqeqe', '0000-00-00', 'awease', 'qewqewqewq', '2016-06-10', 'eqweqwewqe', 67);
+(12, 'Teste', 'Teste', '2016-06-01', 'CEUB2asdasdasd', 'Teste', '2016-06-13', 'Top', 84);
 
 -- --------------------------------------------------------
 
@@ -68,20 +64,10 @@ CREATE TABLE `endereco` (
 --
 
 INSERT INTO `endereco` (`idendereco`, `logradouro`, `cidade`, `estado`, `bairro`) VALUES
-(1, 'aewasd', 'asdse', 'esawe', 'asewaas'),
-(2, 'Teste', 'Tretas', 'asdsaa', 'seinao'),
-(3, 'asrase', 'teste', 'teaste', 'teste'),
-(5, 'loll', 'jajaja', 'lalala', 'Naosei'),
-(6, 'loll', 'jajaja', 'lalala', 'Naosei'),
-(7, 'loll', 'jajaja', 'lalala', 'Naosei'),
-(8, 'loll', 'jajaja', 'lalala', 'Naosei'),
-(9, 'loll', 'jajaja', 'lalala', 'Naosei'),
-(10, 'lollase', 'jajajaasease', 'lalalasaese', 'Naoseiasease'),
-(11, 'aseasesa', 'aseaseas', 'aseasea', 'aseasease'),
-(14, 'aseaee', 'aseasea', 'asesaesae', 'aseaeae'),
-(15, 'aseasea', 'aseasesa', 'asease', 'asease'),
-(95, 'asease', 'asease', 'asease', 'aseas'),
-(96, 'TESTEEEE123', 'aeaesaeae', 'aeeasea', 'easesaesae');
+(98, 'TESTEEEE123', 'Brasili', 'Brasil', 'Seara'),
+(99, 'Teste', 'awease', 'Teste', 'teste'),
+(100, 'Teste', 'Teste', 'Teste', 'Teste'),
+(101, 'sadasd', 'asdasdas', 'sadasd', 'asdasd');
 
 -- --------------------------------------------------------
 
@@ -104,15 +90,10 @@ CREATE TABLE `experience` (
 --
 
 INSERT INTO `experience` (`idexperience`, `companyName`, `description`, `period`, `title`, `iduser`, `idendereco`) VALUES
-(1, 'Teste', 'testes', '2016-03-03', 'vamosver', 67, 1),
-(2, 'Teste2', 'tretas', '2016-03-03', 'vamosver', 68, 2),
-(8, 'Teste1', 'Teste3', '2016-06-09', 'Teste2', 67, 9),
-(9, 'Teste3awea', 'Teste3', '2016-06-09', 'Teste2asease', 67, 10),
-(10, 'aweae', 'asease', '2016-06-16', 'asease', 67, 11),
-(13, 'aseaseaease', 'aseeeas', '2016-06-14', 'saease', 68, 14),
-(14, 'taeasease', 'asease', '2016-06-09', 'asesaea', 67, 15),
-(94, 'tease', 'asease', '2016-06-14', 'asease', 67, 95),
-(95, 'aeaeaseaseas', 'aseaseaseaseas', '2016-06-02', 'easeasease', 67, 96);
+(97, 'Apple', 'Tecnologia', '2016-06-01', 'MuitoTop', 84, 98),
+(98, 'Apple', 'Tecnologia', '2016-06-03', 'qwease', 84, 99),
+(99, 'ApplE', 'Teste', '2016-06-08', 'asdasd', 84, 100),
+(100, 'Teste', 'Teste', '2016-06-09', 'qwease', 84, 101);
 
 -- --------------------------------------------------------
 
@@ -134,13 +115,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`iduser`, `email`, `lastName`, `firstName`, `password`, `phone`) VALUES
-(67, 'pedro@pedro.com', 'Henrique3', 'Pedro22233', 'abc123', '654'),
-(68, 'teste@teste.com', 'teste', 'teste', '123456', 'teste4'),
-(70, 'testando@tetando.com', 'Testando123', 'Testando', 'abc123', '564654'),
-(71, 'aseas@asesa.com', 'aseasesa', 'aseasease', 'abc123', '4564654'),
-(72, 'aseas@asesa.com', 'aseasesa', 'aseasease', 'teas', '4564654'),
-(73, 'asease@aseaes.com', 'asesae', 'asesaesa', '123', '465456'),
-(75, '', '', '', '', '');
+(84, 'pedro@pedro.com', 'henrique', 'pedro', 'abc123', '5646544'),
+(85, 'teste@teste.com', 'henrique', 'pedro', 'abc123', 'asdsa');
 
 --
 -- Indexes for dumped tables
@@ -181,22 +157,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `academiceducation`
 --
 ALTER TABLE `academiceducation`
-  MODIFY `idacademic` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idacademic` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `endereco`
 --
 ALTER TABLE `endereco`
-  MODIFY `idendereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `idendereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 --
 -- AUTO_INCREMENT for table `experience`
 --
 ALTER TABLE `experience`
-  MODIFY `idexperience` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `idexperience` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 --
 -- Constraints for dumped tables
 --

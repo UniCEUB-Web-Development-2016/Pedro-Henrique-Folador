@@ -1,6 +1,6 @@
 <?php
-session_start();
-include('httpful.phar');
+  session_start();
+  include('httpful.phar');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -80,128 +80,129 @@ include('httpful.phar');
 <?php
 $response = \Httpful\Request::get('http://localhost/location/experience/?1=1')->send();
 $request_response = json_decode($response->body);
+
 ?>
 
 
 <form method="POST">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3 col-md-offset-2">
             <div class="form-group">
-                &emsp;&emsp;<label>Bairro</label>
-                <input   name="bairro" type="text" class="form-control" placeholder="Bairro">
+                &emsp;<label>Bairro</label>
+                <input name="bairro" type="text" class="form-control" placeholder="Bairro">
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
                 <label>Employment</label>
                 <select name="description" class="form-control">
-                    <option value="">Tudo</option>
-                    <?php
-                    $descriptionNameanterio = null;
-                    foreach ($request_response as $key => $value) {
+                        <option value="">Tudo</option>
+                   <?php
+                   $companyNameanterio = null;
+                foreach ($request_response as $key => $value) {
+                    
+
+                    if (strtoupper($value->description) != strtoupper($companyNameanterio)){?>
+
+                        <option value="<?php echo $value->description ?>"><?php echo strtoupper($value->description) ?></option>
+                    <?php }
 
 
-                        if (strtoupper($value->description) != strtoupper($descriptionNameanterio)){?>
+                    $companyNameanterio = $value->description;
+                    ?>
 
-                            <option value="<?php echo $value->description ?>"><?php echo strtoupper($value->description) ?></option>
-                        <?php }
-
-
-                        $descriptionNameanterio = $value->description;
-                        ?>
-
-                    <?php }  ?>
+                <?php }  ?>
                 </select>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="form-group">
                 <br>
                 <input name="acao" class="btn" type="submit">
-
+                
             </div>
         </div>
     </div>
 </form>
 
-<?php
-if (!empty($_POST['bairro']) ) { ?>
-    <div class="row">
-        <div class="col-md-12 col-md-offset-3"><b>Filtrado por Bairro:</b> <?php echo $_POST['bairro'] ?></div>
-    </div>
-<?php }
+<?php 
+    if (!empty($_POST['bairro']) ) { ?>
+        <div class="row">
+            <div class="col-md-12 col-md-offset-3"><b>Filtrado por Bairro:</b> <?php echo $_POST['bairro'] ?></div>
+        </div>
+    <?php }
 ?>
-<?php
-if (!empty($_POST['description']) ) { ?>
-    <div class="row">
-        <div class="col-md-12 col-md-offset-3"><b>Filtrado por Campanhia:</b> <?php echo $_POST['description'] ?></div>
-    </div>
-<?php }
+<?php 
+    if (!empty($_POST['companyName']) ) { ?>
+        <div class="row">
+            <div class="col-md-12 col-md-offset-3"><b>Filtrado por Campanhia:</b> <?php echo $_POST['companyName'] ?></div>
+        </div>
+    <?php }
 ?>
 <div class="jumbotron2">
     <div class="container">
         <div id="chart1">
-            <svg></svg>
-        </div>
-        <?php
-        $urlpametro = array();
+    <svg></svg>
+</div>
+  <?php 
+$urlpametro = array();
 
-        if (!empty($_POST['bairro'])) $urlpametro[] = 'bairro='.$_POST['bairro'];
-        if (!empty($_POST['description'])) $urlpametro[] = 'description='.$_POST['description'];
+if (!empty($_POST['bairro'])) $urlpametro[] = 'bairro='.$_POST['bairro'];
+if (!empty($_POST['companyName'])) $urlpametro[] = 'companyName='.$_POST['companyName'];
 
-        $urlpametro = implode('&', $urlpametro);
-        if (!empty($urlpametro)) {
-            $urlpametro = '?'.$urlpametro;
-        } else{
+$urlpametro = implode('&', $urlpametro);
+if (!empty($urlpametro)) {
+    $urlpametro = '?'.$urlpametro;
+} else{
+    
+    $urlpametro = '?1=1';
+}
 
-            $urlpametro = '?1=1';
+
+$response = \Httpful\Request::get('http://localhost/location/experienceChart/'.$urlpametro)->send();
+$request_response = json_decode($response->body);
+
+?>      
+
+
+<script>
+
+    historicalBarChart = [
+        {
+            key: "Cumulative Return",
+            values: <?php echo ($response->body); ?>
         }
+    ];
+
+    nv.addGraph(function() {
+        var chart = nv.models.discreteBarChart()
+            .x(function(d) { return d.label })
+            .y(function(d) { return d.value })
+            .staggerLabels(true)
+            //.staggerLabels(historicalBarChart[0].values.length > 8)
+            .showValues(true)
+            .duration(250)
+            ;
+
+        d3.select('#chart1 svg')
+            .datum(historicalBarChart)
+            .call(chart);
+
+        nv.utils.windowResize(chart.update);
+        return chart;
+    });
 
 
-        $response = \Httpful\Request::get('http://localhost/location/experienceChart/'.$urlpametro)->send();
-        $request_response = json_decode($response->body);
-
-        ?>
+</script>
 
 
-        <script>
-
-            historicalBarChart = [
-                {
-                    key: "Cumulative Return",
-                    values: <?php echo ($response->body); ?>
-                }
-            ];
-
-            nv.addGraph(function() {
-                var chart = nv.models.discreteBarChart()
-                    .x(function(d) { return d.label })
-                    .y(function(d) { return d.value })
-                    .staggerLabels(true)
-                    //.staggerLabels(historicalBarChart[0].values.length > 8)
-                    .showValues(true)
-                    .duration(250)
-                    ;
-
-                d3.select('#chart1 svg')
-                    .datum(historicalBarChart)
-                    .call(chart);
-
-                nv.utils.windowResize(chart.update);
-                return chart;
-            });
-
-
-        </script>
-
-
-
+  
 
     </div>
 
 </div> <!-- /container -->
 
-
+    
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="js/ie10-viewport-bug-workaround.js"></script>
 

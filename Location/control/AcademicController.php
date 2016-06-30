@@ -43,7 +43,10 @@ class AcademicController
 
         $conn = $db->getConnection();
 
-        $result = $conn->query("SELECT institution, period, formation, studyArea, note, activitiesGroups, iduser, description  FROM academiceducation WHERE " . $crit);
+        $sql = "SELECT idacademic,firstName,institution, period, formation, studyArea, note, activitiesGroups, user.iduser, description  
+FROM academiceducation inner join user on (user.iduser = academiceducation.iduser) ";
+        $sql .= " WHERE " . $crit;
+        $result = $conn->query($sql);
 
         //foreach($result as $row)
 
@@ -55,10 +58,7 @@ class AcademicController
     {
         $criteria = "";
         foreach ($params as $key => $value) {
-            
-            if (!empty($criteria)) $criteria .= " OR ";
-
-            $criteria = $criteria . $key . " LIKE '%" . $value . "%' ";
+            $criteria = $criteria . $key . " LIKE '%" . $value . "%' and ";
         }
 
         return substr($criteria, 0, -4);
@@ -70,7 +70,7 @@ class AcademicController
         $db = new DatabaseConnector("localhost", "location", "mysql", "", "root", "");
         $conn = $db->getConnection();
         foreach ($params as $key => $value) {
-            $result = $conn->query("UPDATE academiceducation SET " . $key . " =  '" . $value . "' WHERE iduser = '" . $params["iduser"] . "'");
+            $result = $conn->query("UPDATE academiceducation SET " . $key . " =  '" . $value . "' WHERE idacademic = '" . $params["idacademic"] . "'");
         }
         return $result;
     }

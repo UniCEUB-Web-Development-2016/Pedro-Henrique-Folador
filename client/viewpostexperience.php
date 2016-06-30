@@ -1,7 +1,6 @@
 <?php
   session_start();
 ?>
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,7 +19,10 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <link href="css/toolkit.css" rel="stylesheet">
     <link href="css/application.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css"/>
+ 
+    <script type="text/javascript" src="../client/js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.js"></script>
 
 <body class="ang">
 <nav class="ck pc os app-navbar">
@@ -49,13 +51,16 @@
         </div>
     </div>
 </nav>
-
+<br>
+<br>
+<br>
 <div class="jumbotron2">
     <div class="container">
 
 <table class="table" id="example">
     <thead>
         <tr>
+            <th>Pessoa</th>
             <th>Companhia</th>
             <th>Descricao</th>
             <th>Bairro</th>
@@ -80,15 +85,15 @@ if (!empty($urlpametro)) {
     $urlpametro = '?1=1';
 }
 
- include('httpful.phar');
+include('httpful.phar');
 $response = \Httpful\Request::get('http://localhost/location/experience/'.$urlpametro)->send();
 $request_response = json_decode($response->body);
-//print_r($request_response);
 ?>
 
   <?php
 foreach ($request_response as $key => $value) {?>
       <tr>
+        <td><?php echo $value->firstName ?></td>
         <td><?php echo $value->companyName ?></td>
         <td><?php echo $value->description ?></td>
         <td><?php echo $value->bairro ?></td>
